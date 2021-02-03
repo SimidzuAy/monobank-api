@@ -1,9 +1,24 @@
 {
   "name": "monobank-api",
   "version": "0.0.1",
-  "main": "build/index.js",
   "author": "Simidzu Ay",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
   "license": "MIT",
+  "files": [
+    "build"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:SimidzuAy/monobank-api.git"
+  },
+  "keywords": [
+    "monobank",
+    "mono",
+    "bank",
+    "api"
+  ],
+  "homepage": "https://github.com/SimidzuAy/monobank-api#readme",
   "private": false,
   "scripts": {
     "build": "tsc",
@@ -12,8 +27,12 @@
   },
   "description": "MonoBank API wrapper",
   "dependencies": {
-    "eslint": "^7.19.0",
     "node-fetch": "^2.6.1",
+    "tslib": "^2.1.0"
+  },
+  "devDependencies": {
+    "@types/node-fetch": "^2.5.8",
+    "eslint": "^7.19.0",
     "prettier": "^2.2.1",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.3"
