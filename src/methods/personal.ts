@@ -89,13 +89,12 @@ class Personal {
     public async statement(params: IStatementParams) {
         const maxFrom = 2682000
 
-        const to = params.to ? Number(params.to) : Date.now()
+        // Деление на 1000 т.к перевод в секунды...
+        const to = params.to ? Number(params.to) : Math.round(Date.now() / 1000)
         let from = Number(params.from)
 
         if ( Date.now() - from > maxFrom )
-            from = Date.now() - maxFrom
-
-        console.log(to - from)
+            from = Math.round(Date.now() / 1000 - maxFrom)
 
         return await makeRequest<Object>(`${this._apiUrl}/personal/statement/${params.account}/${from}/${to}`, this._token)
     }
