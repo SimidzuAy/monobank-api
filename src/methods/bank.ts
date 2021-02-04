@@ -1,9 +1,5 @@
-import fetch from 'node-fetch'
-
-interface IBankParam {
-    token: string
-    apiUrl: string
-}
+import { IParams } from '../types'
+import { makeRequest } from '../utils'
 
 interface ICurrencyAnswer {
     /**
@@ -27,7 +23,7 @@ class Bank {
     private readonly _token: string
     private readonly _apiUrl: string
 
-    constructor(params: IBankParam) {
+    constructor(params: IParams) {
         this._apiUrl = params.apiUrl
         this._token = params.token
     }
@@ -36,13 +32,7 @@ class Bank {
      * Отримати базовий перелік курсів валют monobank. Інформація кешується та оновлюється не частіше 1 разу на 5 хвилин.
      */
     public async currency(): Promise<ICurrencyAnswer[]> {
-        const ans = await (await fetch(`${this._apiUrl}/bank/currency`, {
-            headers: {
-                'X-Token': this._token
-            }
-        })).json()
-
-        return ans as ICurrencyAnswer[]
+        return await makeRequest<ICurrencyAnswer[]>(`${this._apiUrl}/bank/currency`, this._token)
     }
 }
 
