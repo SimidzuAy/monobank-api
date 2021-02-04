@@ -9,5 +9,9 @@ export const makeRequest = async <T>(url: string, token: string): Promise<T> => 
         })
     ).json()
 
+    if ( ans.errorDescription ) {
+        throw new Error(ans.errorDescription)
+    }
+
     return ans as T
 }

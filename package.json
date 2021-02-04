@@ -1,6 +1,6 @@
 {
   "name": "monobank-api",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": "Simidzu Ay",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
