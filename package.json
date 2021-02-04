@@ -22,7 +22,8 @@
   "private": false,
   "scripts": {
     "build": "tsc",
-    "pretty": "prettier -w ./src"
+    "pretty": "prettier -w ./src",
+    "prepublishOnly": "yarn build"
   },
   "description": "MonoBank API wrapper",
   "dependencies": {
