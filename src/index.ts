@@ -21,7 +21,6 @@ class MonoClient {
             token: params.token,
             apiUrl
         })
-
     }
 
     get bank() {
@@ -32,7 +31,6 @@ class MonoClient {
         return this._personal
     }
 }
-
 
 export { MonoClient, IClientParams }
 export * from './methods'

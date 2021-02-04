@@ -50,7 +50,6 @@ interface IClientInfo {
     permissions: string
 }
 
-
 interface IStatementParams {
     /**
      * Ідентифікатор рахунку з переліку Statement list або 0 - дефолтний рахунок.
@@ -157,17 +156,13 @@ class Personal {
         const to = params.to ? Number(params.to) : Math.round(Date.now() / 1000)
         let from = Number(params.from)
 
-        if ( Date.now() - from > maxFrom )
-            from = Math.round(Date.now() / 1000 - maxFrom)
+        if (Date.now() - from > maxFrom) from = Math.round(Date.now() / 1000 - maxFrom)
 
-        return await makeRequest<IStatement>(`${this._apiUrl}/personal/statement/${params.account}/${from}/${to}`, this._token)
+        return await makeRequest<IStatement>(
+            `${this._apiUrl}/personal/statement/${params.account}/${from}/${to}`,
+            this._token
+        )
     }
 }
 
-
-export {
-    Personal,
-    IClientInfo,
-    IAccount
-}
-
+export { Personal, IClientInfo, IAccount }

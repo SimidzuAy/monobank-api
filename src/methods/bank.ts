@@ -36,5 +36,4 @@ class Bank {
     }
 }
 
-
 export { Bank }
